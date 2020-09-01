@@ -106,4 +106,4 @@ define service {
       register                       1
 }
 " >> /usr/local/nagios/etc/servers/slave4.cfg
-sudo systemctl restart nagios
+sudo systemctl restart nagios '
