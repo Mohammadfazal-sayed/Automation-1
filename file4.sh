@@ -114,7 +114,7 @@ define service {
       notifications_enabled           1
       register                       1
 }
-" >> /usr/local/nagios/etc/servers/hosts.cfg
+" >> /usr/local/nagios/etc/servers/hostsH.cfg
 sudo systemctl restart nagios
 '
 
