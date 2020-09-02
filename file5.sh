@@ -22,7 +22,7 @@ sudo echo " allowed_hosts=127.0.0.1,172.31.63.150" >> /etc/nagios/nrpe.cfg
 sudo service nagios-nrpe-server restart 
 '
 
-ssh ubuntu@172.31.63.150 '
+ssh -i "/home/ubuntu/sbk.pem" ubuntu@172.31.63.150 '
 sudo chmod 777 -R /usr/local/nagios/
 sudo echo " define host {
         use                          linux-server
