@@ -1,0 +1,4 @@
+ssh -i "/home/ubuntu/Jenkins.pem" ubuntu@172.31.29.231 '
+sudo su -
+sudo hostname EXTRA
+'
