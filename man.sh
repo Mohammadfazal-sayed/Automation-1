@@ -21,7 +21,6 @@ sudo sed -i "108i log_bin_index =/var/log/mysql/mysql-bin.log.index "  /etc/mysq
 sudo sed -i "109i relay_log = /var/log/mysql/mysql-relay-bin "  /etc/mysql/mysql.conf.d/mysqld.cnf
 sudo sed -i "110i relay_log_index = /var/log/mysql/mysql-relay-bin.index "  /etc/mysql/mysql.conf.d/mysqld.cnf
 sudo systemctl restart mysql
-sudo echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+tVfp4xgQaulYsXlemafq4gCflf6bJhaa/fL8ldzkyUYwT+/EyU1bPtWxoOzoLk5f2T0C1HGZirXAEEYTfd9xltAt93WD6b0TIH24SPhIvu67bjNOWB52lDEuXpWYgIQ0+rBBGl5QOtaj9NYZuORgjYRLCEQMRWgpVkEg9Tn+eQ4+hcJe876qPxF0rU3m7wRznLaFApSl3mcwKPZyYg2t/h+ku+vUKDgvKnDPQioXtriO3icFarhtr9ZypzQx+85SUPc8wQPMzceO7IW1dkAmt41uvp2Dr5KpsGw1pjB8h+S8KWs1D23HHfSRUAUcnsrl+mIbAgJoMju3zzz1bwBx ubuntu@MYSQLMaster" >> /home/ubuntu/.ssh/authorized_keys
 '
 
 ip=`aws ec2 describe-instances  --region us-east-1 --query 'sort_by(Reservations[].Instances[], &LaunchTime)[].[InstanceId,PublicIpAddress,LaunchTime]' --output text | tail -1 | awk '{ print  $2 }'`
