@@ -3,8 +3,6 @@ ip=`aws ec2 describe-instances  --region us-east-1 --query 'sort_by(Reservations
 ipr=`aws ec2 describe-instances  --region us-east-1 --query 'sort_by(Reservations[].Instances[], &LaunchTime)[].[InstanceId,PrivateIpAddress,LaunchTime]' --output text | tail -1 | awk '{ print  $2 }'`
 sleep 60
 ssh -i "/home/ubuntu/Jenkins1.pem" ubuntu@172.31.21.233 '
-sudo echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC58eb5Qb2m9BPOuIjKu6Pm1InP35nzTH8/Yy93CC/kaKHR5WTXsjGMFK6chOQLq17MZPei7frZdyCZHu1CzKgKi+rIs0IBcu4rye51ZFh0rgFLk9qpspXmUBTJKroppaTf2/K/04yW0SLT/zmzdnwrhI+QkOab3xfbTs7KehChXnnkOlR9ULfTre3o/XGcLRju9eaYbUamokwhpgxYHc9O4WYp59jokf0d61cmhTsE0ODZJNt3Qju5m1cfAZ1irmA6UO+DN4WYiexFIBIweWe5e7OzoN/ko4quqkcoYazXoeuEwBYEi7OZRK2Ykkb/Nz741Ry/a+47d60mub31iuiL jenkins@jenkinsServer" >> /home/ubuntu/.ssh/authorized_keys
-sudo ufw allow 22
 sudo apt-get update
 sudo apt-get install apache2 -y
 sudo ufw allow 80/tcp
