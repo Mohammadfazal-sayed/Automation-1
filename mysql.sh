@@ -15,6 +15,7 @@ ip=`aws ec2 describe-instances  --region us-east-1 --query 'sort_by(Reservations
 ipr=`aws ec2 describe-instances  --region us-east-1 --query 'sort_by(Reservations[].Instances[], &LaunchTime)[].[InstanceId,PrivateIpAddress,LaunchTime]' --output text | tail -1 | awk '{ print  $2 }'`
 sleep 60
 ssh -i "/home/ubuntu/Jenkins1.pem" ubuntu@$ip '
+sudo su Sarfarz
 sudo apt-get update
 sudo apt-get install apache2 -y
 sudo ufw allow 80/tcp
